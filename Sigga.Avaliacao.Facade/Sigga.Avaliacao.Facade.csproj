@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{460EF763-E6C9-4363-835E-78C2B61C4748}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sigga.Avaliacao.Facade</RootNamespace>
+    <AssemblyName>Sigga.Avaliacao.Facade</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\CoreFacade.cs" />
+    <Compile Include="Core\Interface\ICoreFacade.cs" />
+    <Compile Include="Facade\Base\BaseFacade.cs" />
+    <Compile Include="Facade\Base\Interface\IBaseFacade.cs" />
+    <Compile Include="Facade\Interface\IItemFacade.cs" />
+    <Compile Include="Facade\ItemFacade.cs" />
+    <Compile Include="Factory\FacadeFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sigga.Avaliacao.Business\Sigga.Avaliacao.Business.csproj">
+      <Project>{67f31946-5b3b-446f-8961-0973f63ded09}</Project>
+      <Name>Sigga.Avaliacao.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigga.Avaliacao.Common\Sigga.Avaliacao.Common.csproj">
+      <Project>{b821facb-b02c-47ef-80f2-89bb029c45ff}</Project>
+      <Name>Sigga.Avaliacao.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigga.Avaliacao.Model\Sigga.Avaliacao.Model.csproj">
+      <Project>{422f25d0-2f67-41da-af4d-8cd60cfbe0f2}</Project>
+      <Name>Sigga.Avaliacao.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
