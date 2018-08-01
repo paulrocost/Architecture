@@ -1,37 +1,16 @@
-﻿using Sigga.Avaliacao.Business.Rule.Interface;
+﻿using Sigga.Avaliacao.Business.Rule.Base;
+using Sigga.Avaliacao.Business.Rule.Interface;
+using Sigga.Avaliacao.Data.Factory;
+using Sigga.Avaliacao.Model.Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sigga.Avaliacao.Business.Rule
 {
-    public class ItemRule : IItemRule
+    public class ItemRule : BaseRule<Item>, IItemRule
     {
-        public ItemRule()
+        public override void InstanceMapper()
         {
-
+            base.Mapper = MapperFactory.Item();
         }
-
-        #region[Dispose]
-        private bool disposed = false;
-        public virtual void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        private void Dispose(bool disposing)
-        {
-            if (disposed)
-                return;
-
-            if (disposing)
-                //this.Rule.Dispose();
-
-                disposed = true;
-        }
-        #endregion
     }
 }

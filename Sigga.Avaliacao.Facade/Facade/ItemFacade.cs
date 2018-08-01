@@ -1,7 +1,7 @@
-﻿using Sigga.Avaliacao.Facade.Facade.Base;
+﻿using Sigga.Avaliacao.Business.Factory;
+using Sigga.Avaliacao.Facade.Facade.Base;
 using Sigga.Avaliacao.Facade.Facade.Interface;
 using Sigga.Avaliacao.Model.Entity;
-using System;
 
 namespace Sigga.Avaliacao.Facade.Facade
 {
@@ -9,29 +9,7 @@ namespace Sigga.Avaliacao.Facade.Facade
     {
         public override void InstanceRule()
         {
-            throw new NotImplementedException();
-        }        
-
-        #region[Dispose]
-        private bool disposed = false;
-        public virtual void Dispose()
-        {
-            this.Dispose(true);
-            GC.SuppressFinalize(this);
+           this.Rule = RuleFactory.Item();
         }
-
-        private void Dispose(bool disposing)
-        {
-            if (disposed)
-                return;
-
-            if (disposing)
-                //this.Rule.Dispose();
-
-                disposed = true;
-        }
-
-        
-        #endregion
     }
 }

@@ -6,8 +6,7 @@ using System;
 
 namespace Sigga.Avaliacao.Facade.Facade.Base.Interface
 {
-    public interface IBaseFacade<T>
-        : ICoreFacade where T : class
+    public interface IBaseFacade<T> : ICoreFacade where T : class
     {
         IBaseRule<T> Rule { get; set; }
 

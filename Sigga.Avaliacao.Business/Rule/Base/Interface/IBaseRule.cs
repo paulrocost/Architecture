@@ -1,4 +1,5 @@
 ﻿using Sigga.Avaliacao.Business.Core.Interface;
+using Sigga.Avaliacao.Data.Mapper.Base.Interface;
 using Sigga.Avaliacao.Model.Condition.Interface;
 using Sigga.Avaliacao.Model.Response;
 using System;
@@ -11,7 +12,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base.Interface
 {
     public interface IBaseRule<T> : ICoreRule where T : class
     {
-        //IFormMapper<T> Mapper { get; set; }
+        IBaseMapper<T> Mapper { get; set; }
 
         EntityResponse<T> Retrieve(Guid id);
 

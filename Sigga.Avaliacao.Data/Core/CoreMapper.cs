@@ -12,11 +12,11 @@ namespace Sigga.Avaliacao.Data.Core
         : ICoreMapper where T : class
     {
 
-        private static string DbFile
+        protected static string DbFile
         {
             get
             {
-                return Environment.CurrentDirectory + "\\SimpleDb.sqlite";
+                return "C:\\sqlite\\SimpleDb.sqlite";
             }
         }
 
@@ -24,7 +24,7 @@ namespace Sigga.Avaliacao.Data.Core
         {
             get
             {
-                return new SQLiteConnection("Data Source=" + DbFile);
+                return new SQLiteConnection("Data Source=" + DbFile + ";Version=3;New=False;Compress=True;");
             }
         }
 

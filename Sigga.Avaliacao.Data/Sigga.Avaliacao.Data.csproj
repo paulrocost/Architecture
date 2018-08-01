@@ -66,15 +66,15 @@
     <Compile Include="Factory\MapperFactory.cs" />
     <Compile Include="Mapper\Base\BaseMapper.cs" />
     <Compile Include="Mapper\Base\Interface\IBaseMapper.cs" />
+    <Compile Include="Mapper\Interface\IItemMapper.cs" />
+    <Compile Include="Mapper\ItemMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Mapper\Interface\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Sigga.Avaliacao.Common\Sigga.Avaliacao.Common.csproj">
       <Project>{b821facb-b02c-47ef-80f2-89bb029c45ff}</Project>

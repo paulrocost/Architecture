@@ -35,6 +35,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RegisterForComInterop>false</RegisterForComInterop>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -203,6 +204,10 @@
     <ProjectReference Include="..\Sigga.Avaliacao.Facade\Sigga.Avaliacao.Facade.csproj">
       <Project>{460ef763-e6c9-4363-835e-78c2b61c4748}</Project>
       <Name>Sigga.Avaliacao.Facade</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sigga.Avaliacao.Model\Sigga.Avaliacao.Model.csproj">
+      <Project>{422f25d0-2f67-41da-af4d-8cd60cfbe0f2}</Project>
+      <Name>Sigga.Avaliacao.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

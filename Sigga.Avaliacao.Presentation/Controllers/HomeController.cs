@@ -1,4 +1,5 @@
 ﻿using Sigga.Avaliacao.Facade.Factory;
+using Sigga.Avaliacao.Model.Entity;
 using System.Web.Mvc;
 
 namespace Sigga.Avaliacao.Presentation.Controllers
@@ -9,7 +10,7 @@ namespace Sigga.Avaliacao.Presentation.Controllers
         {
             using (var facade = FacadeFactory.Item())
             {
-                
+                var response = facade.Create(new Item { Id = 1, UserId = 1, Title = "Teste", Completed = true });
             }
 
             return View();

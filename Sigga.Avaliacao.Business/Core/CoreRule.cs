@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Sigga.Avaliacao.Business.Core
 {
-    public abstract class CoreRule : ICoreRule
+    public abstract class CoreRule<T> 
+        : ICoreRule where T : class
     {
         public void Dispose()
         {

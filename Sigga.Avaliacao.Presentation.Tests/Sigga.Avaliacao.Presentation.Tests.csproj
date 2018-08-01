@@ -99,6 +99,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sigga.Avaliacao.Model\Sigga.Avaliacao.Model.csproj">
+      <Project>{422f25d0-2f67-41da-af4d-8cd60cfbe0f2}</Project>
+      <Name>Sigga.Avaliacao.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sigga.Avaliacao.Presentation\Sigga.Avaliacao.Presentation.csproj">
       <Project>{473F3FF4-2666-4AE3-B845-3DD1A70E9C3E}</Project>
       <Name>Sigga.Avaliacao.Presentation</Name>

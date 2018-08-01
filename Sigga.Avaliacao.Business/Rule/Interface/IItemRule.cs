@@ -1,13 +1,9 @@
-﻿using Sigga.Avaliacao.Business.Core.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sigga.Avaliacao.Business.Rule.Base.Interface;
+using Sigga.Avaliacao.Model.Entity;
 
 namespace Sigga.Avaliacao.Business.Rule.Interface
 {
-    public interface IItemRule : ICoreRule
+    public interface IItemRule : IBaseRule<Item>
     {
     }
 }
