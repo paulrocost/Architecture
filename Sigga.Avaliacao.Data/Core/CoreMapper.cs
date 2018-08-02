@@ -1,10 +1,7 @@
 ﻿using Sigga.Avaliacao.Data.Core.Interface;
 using System;
-using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SQLite;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sigga.Avaliacao.Data.Core
 {
@@ -12,11 +9,12 @@ namespace Sigga.Avaliacao.Data.Core
         : ICoreMapper where T : class
     {
 
-        protected static string DbFile
+        protected string DbFile
         {
             get
             {
-                return "C:\\sqlite\\SimpleDb.sqlite";
+                string path = ConfigurationSettings.AppSettings["databasepath"];
+                return path;
             }
         }
 
