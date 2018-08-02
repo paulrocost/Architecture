@@ -3,6 +3,7 @@ using Sigga.Avaliacao.Data.Core;
 using Sigga.Avaliacao.Data.Mapper.Base.Interface;
 using Sigga.Avaliacao.Model.Condition.Interface;
 using Sigga.Avaliacao.Model.Response;
+using Sigga.Avaliacao.Common;
 using System;
 using System.Linq;
 using System.IO;
@@ -15,11 +16,21 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
     {
         public BaseMapper()
         {
-            if (!File.Exists(DbFile))
+            try
             {
-                SQLiteConnection.CreateFile(DbFile);
-                CreateDatabase();
+                if (!File.Exists(DbFile))
+                {
+                    SQLiteConnection.CreateFile(DbFile);
+                    CreateDatabase();
+                    Global.IsDatabaseCreated = true;
+                }
             }
+            catch (Exception)
+            {
+
+                throw new Exception("Falha co criar banco de dados");
+            }
+            
         }
 
         private void CreateDatabase()
@@ -54,7 +65,17 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
 
         public CreateCollectionResponse CreateCollection(T[] collection)
         {
-            throw new NotImplementedException();
+            using (var con = context)
+            {
+                con.Open();
+                Global.IsSeeked = true;
+                return new CreateCollectionResponse(
+                    con.Execute(@"INSERT INTO Item(Id, UserId, Title, Completed) VALUES
+                                (@Id, @UserId, @Title, @Completed)", collection)
+
+                    );
+                
+            }
         }
 
         public DeleteResponse Delete(Guid id)
@@ -67,9 +88,9 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
             throw new NotImplementedException();
         }
 
-        public EntityResponse<T> Retrieve(Guid id)
+        public EntityResponse<T> Retrieve(int id)
         {
-            if(id != null)
+            if(!id.IsNull())
             {
                 using (var con = context)
                 {
@@ -88,7 +109,15 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
 
         public EntityCollectionResponse<T> RetrieveCollection(IModelCondition<T> condition)
         {
-            throw new NotImplementedException();
+            using (var conn = context)
+            {
+                conn.Open();
+                return new EntityCollectionResponse<T>(
+                    conn.Query<T>(
+                        @"SELECT Id, UserId, Title, Completed
+                              FROM Item")                       
+                    );
+            }
         }
 
         public UpdateResponse Update(T entity)

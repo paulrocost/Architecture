@@ -7,7 +7,7 @@ namespace Sigga.Avaliacao.Data.Mapper.Base.Interface
 {
     public interface IBaseMapper<T> : ICoreMapper where T : class
     {
-        EntityResponse<T> Retrieve(Guid id);
+        EntityResponse<T> Retrieve(int id);
 
         EntityCollectionResponse<T> RetrieveCollection(IModelCondition<T> condition);
 

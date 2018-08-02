@@ -198,6 +198,7 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\_Consulta.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -216,6 +217,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Sigga.Avaliacao.Common\Sigga.Avaliacao.Common.csproj">
+      <Project>{b821facb-b02c-47ef-80f2-89bb029c45ff}</Project>
+      <Name>Sigga.Avaliacao.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sigga.Avaliacao.Facade\Sigga.Avaliacao.Facade.csproj">
       <Project>{460ef763-e6c9-4363-835e-78c2b61c4748}</Project>
       <Name>Sigga.Avaliacao.Facade</Name>

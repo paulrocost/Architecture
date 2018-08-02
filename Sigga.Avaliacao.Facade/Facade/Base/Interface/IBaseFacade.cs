@@ -10,7 +10,7 @@ namespace Sigga.Avaliacao.Facade.Facade.Base.Interface
     {
         IBaseRule<T> Rule { get; set; }
 
-        EntityResponse<T> Retrieve(Guid id);
+        EntityResponse<T> Retrieve(int id);
 
         EntityCollectionResponse<T> RetrieveCollection(IModelCondition<T> condition);
 

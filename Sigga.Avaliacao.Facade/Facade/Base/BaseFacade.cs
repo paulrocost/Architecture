@@ -19,7 +19,7 @@ namespace Sigga.Avaliacao.Facade.Facade.Base
 
         public abstract void InstanceRule();
 
-        public virtual EntityResponse<T> Retrieve(Guid id)
+        public virtual EntityResponse<T> Retrieve(int id)
         {
             return this.Rule.Retrieve(id);
         }

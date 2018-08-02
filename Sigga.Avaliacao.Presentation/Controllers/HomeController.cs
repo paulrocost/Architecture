@@ -1,5 +1,8 @@
-﻿using Sigga.Avaliacao.Facade.Factory;
+﻿using Newtonsoft.Json;
+using Sigga.Avaliacao.Facade.Factory;
+using Sigga.Avaliacao.Model.Condition;
 using Sigga.Avaliacao.Model.Entity;
+using Sigga.Avaliacao.Common;
 using System.Net;
 using System.Web.Mvc;
 
@@ -10,18 +13,35 @@ namespace Sigga.Avaliacao.Presentation.Controllers
         public ActionResult Index()
         {
             using (WebClient webclient = new WebClient())
-            {
-                var json = webclient.DownloadString("https://jsonplaceholder.typicode.com/todos");
-            }
-
-            //Deserializar e fazer o parse para a entidade Item.
-
             using (var facade = FacadeFactory.Item())
             {
-                var response = facade.Create(new Item { Id = 1, UserId = 1, Title = "Teste", Completed = true });
-            }
+                if (Global.IsDatabaseCreated && !Global.IsSeeked)
+                {
+                    var json = webclient.DownloadString("https://jsonplaceholder.typicode.com/todos");
+                    Item[] itens = JsonConvert.DeserializeObject<Item[]>(json);
 
-            return View();
+               
+                    var response = facade.CreateCollection(itens);
+                    if (response.Success)
+                    {
+                        var responsecollection = facade.RetrieveCollection(new ModelCondition<Item>());
+                        return View(responsecollection);
+                    }
+                }
+                
+                var responsecollect = facade.RetrieveCollection(new ModelCondition<Item>());
+                return View(responsecollect);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Consulta(int id)
+        {
+            using (var facade = FacadeFactory.Item())
+            {
+                var response = facade.Retrieve(id);                
+                return PartialView("_Consulta", response);
+            }
         }
 
         public ActionResult About()
@@ -37,5 +57,6 @@ namespace Sigga.Avaliacao.Presentation.Controllers
 
             return View();
         }
+       
     }
 }

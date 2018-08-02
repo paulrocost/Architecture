@@ -14,7 +14,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base.Interface
     {
         IBaseMapper<T> Mapper { get; set; }
 
-        EntityResponse<T> Retrieve(Guid id);
+        EntityResponse<T> Retrieve(int id);
 
         EntityResponse<T> RetrieveFirst(IModelCondition<T> condition);
 

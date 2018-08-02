@@ -1,0 +1,34 @@
+﻿@model Sigga.Avaliacao.Model.Response.EntityResponse<Item>
+@using Sigga.Avaliacao.Model.Entity;
+@Styles.Render("~/Content/css")
+<div class="container">
+    <div class="row">        
+        <h4>Consulta por Id</h4>
+        @using (Html.BeginForm("Consulta", "Home", FormMethod.Post, new { @class = "form-inline" }))
+        {
+
+            <div class="form-group mx-sm-3 mb-2">
+                <label for="inputPassword2" class="sr-only">Id: </label>
+                <input type="text" name="Id" class="form-control" placeholder="Id">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Buscar</button>
+        }
+
+    </div>
+    @if (Model != null && Model.Success)
+    {
+    <div class="row">
+        <label>Id:</label>
+        @Model.Entity.Id <br />
+        <label>UserId:</label>
+        @Model.Entity.UserId<br />
+        <label>Title:</label>
+        @Model.Entity.Title<br />
+        <label>Completed:</label>
+        @Model.Entity.Completed
+
+    </div>
+    }
+</div>
+<hr />
+<div class="divider"></div>

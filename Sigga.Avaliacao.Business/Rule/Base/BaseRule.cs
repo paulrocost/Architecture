@@ -21,15 +21,14 @@ namespace Sigga.Avaliacao.Business.Rule.Base
 
         public abstract void InstanceMapper();
 
-        public virtual EntityResponse<T> Retrieve(Guid id)
+        public virtual EntityResponse<T> Retrieve(int id)
         {
             try
             {
                 return Mapper.Retrieve(id);
             }
             catch (Exception exception)
-            {
-                //ToDo: create Ticket
+            {               
                 return new EntityResponse<T>(exception);
             }
         }
@@ -48,8 +47,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base
                 return new EntityResponse<T>(response.Collection.First());
             }
             catch (Exception exception)
-            {
-                //ToDo: create Ticket
+            {                
                 return new EntityResponse<T>(exception);
             }
         }
@@ -61,8 +59,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base
                 return Mapper.RetrieveCollection(condition);
             }
             catch (Exception exception)
-            {
-                //ToDo: create Ticket
+            {               
                 return new EntityCollectionResponse<T>(exception);
             }
         }
@@ -70,17 +67,11 @@ namespace Sigga.Avaliacao.Business.Rule.Base
         public virtual CreateResponse Create(T entity)
         {
             try
-            {
-                //if (entity.Id.Equals(Guid.Empty))
-                //    entity.Id = Guid.NewGuid();
-
-                //entity.CriadoEm = DateTime.Now;
-
+            {               
                 return Mapper.Create(entity);
             }
             catch (Exception exception)
-            {
-                //ToDo: create Ticket
+            {                
                 return new CreateResponse(exception);
             }
         }
@@ -88,23 +79,11 @@ namespace Sigga.Avaliacao.Business.Rule.Base
         public virtual CreateCollectionResponse CreateCollection(T[] collection)
         {
             try
-            {
-                foreach (var entity in collection)
-                {
-                    //if (entity is IFormStatusEntity)
-                    //    (entity as IFormStatusEntity).Status = true;
-
-                    //if (entity.Id.Equals(Guid.Empty))
-                    //    entity.Id = Guid.NewGuid();
-
-                    //entity.CriadoEm = DateTime.Now;
-                }
-
+            {                
                 return Mapper.CreateCollection(collection);
             }
             catch (Exception exception)
-            {
-                //ToDo: create Ticket
+            {             
                 return new CreateCollectionResponse(exception);
             }
         }
@@ -116,8 +95,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base
                 return Mapper.Update(entity);
             }
             catch (Exception exception)
-            {
-                //ToDo: create Ticket
+            {                
                 return new UpdateResponse(exception);
             }
         }
@@ -129,8 +107,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base
                 return Mapper.UpdateCollection(collection);
             }
             catch (Exception exception)
-            {
-                //ToDo: create Ticket
+            {                
                 return new UpdateResponse(exception);
             }
         }
@@ -143,7 +120,6 @@ namespace Sigga.Avaliacao.Business.Rule.Base
             }
             catch (Exception exception)
             {
-                //ToDo: create Ticket
                 return new DeleteResponse(exception);
             }
         }
@@ -156,7 +132,6 @@ namespace Sigga.Avaliacao.Business.Rule.Base
             }
             catch (Exception exception)
             {
-                //ToDo: create Ticket
                 return new DeleteResponse(exception);
             }
         }
