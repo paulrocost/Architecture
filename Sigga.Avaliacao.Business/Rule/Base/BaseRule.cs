@@ -33,7 +33,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base
             }
         }
 
-        public EntityResponse<T> RetrieveFirst(IModelCondition<T> condition)
+        public virtual EntityResponse<T> RetrieveFirst(IModelCondition<T> condition)
         {
             try
             {
@@ -112,7 +112,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base
             }
         }
 
-        public DeleteResponse Delete(Guid id)
+        public virtual DeleteResponse Delete(Guid id)
         {
             try
             {
@@ -124,7 +124,7 @@ namespace Sigga.Avaliacao.Business.Rule.Base
             }
         }
 
-        public DeleteResponse DeleteCollection(IModelCondition<T> condition)
+        public virtual DeleteResponse DeleteCollection(IModelCondition<T> condition)
         {
             try
             {

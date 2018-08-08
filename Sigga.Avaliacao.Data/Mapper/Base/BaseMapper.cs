@@ -49,7 +49,7 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
             }
         }
 
-        public CreateResponse Create(T entity)
+        public virtual CreateResponse Create(T entity)
         {            
             using (var con = context)
             {
@@ -63,7 +63,7 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
             }
         }
 
-        public CreateCollectionResponse CreateCollection(T[] collection)
+        public virtual CreateCollectionResponse CreateCollection(T[] collection)
         {
             using (var con = context)
             {
@@ -78,7 +78,7 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
             }
         }
 
-        public DeleteResponse Delete(Guid id)
+        public virtual DeleteResponse Delete(Guid id)
         {
             throw new NotImplementedException();
         }
@@ -88,7 +88,7 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
             throw new NotImplementedException();
         }
 
-        public EntityResponse<T> Retrieve(int id)
+        public virtual EntityResponse<T> Retrieve(int id)
         {
             if(!id.IsNull())
             {
@@ -107,7 +107,7 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
             return new EntityResponse<T>(new Exception("Registro não encontrado."));
         }
 
-        public EntityCollectionResponse<T> RetrieveCollection(IModelCondition<T> condition)
+        public virtual EntityCollectionResponse<T> RetrieveCollection(IModelCondition<T> condition)
         {
             using (var conn = context)
             {
@@ -120,12 +120,12 @@ namespace Sigga.Avaliacao.Data.Mapper.Base
             }
         }
 
-        public UpdateResponse Update(T entity)
+        public virtual UpdateResponse Update(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public UpdateResponse UpdateCollection(T[] collection)
+        public virtual UpdateResponse UpdateCollection(T[] collection)
         {
             throw new NotImplementedException();
         }

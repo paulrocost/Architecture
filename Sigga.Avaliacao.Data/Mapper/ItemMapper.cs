@@ -11,5 +11,6 @@ namespace Sigga.Avaliacao.Data.Mapper
 {
     public class ItemMapper : BaseMapper<Item>, IItemMapper
     {
+        
     }
 }

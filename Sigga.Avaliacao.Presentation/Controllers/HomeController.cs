@@ -11,7 +11,7 @@ namespace Sigga.Avaliacao.Presentation.Controllers
     public class HomeController : Controller
     {
         public ActionResult Index()
-        {
+        {            
             using (WebClient webclient = new WebClient())
             using (var facade = FacadeFactory.Item())
             {
