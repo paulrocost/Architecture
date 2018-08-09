@@ -10,5 +10,6 @@ namespace Sigga.Avaliacao.Data.Mapper.Interface
 {
     public interface IItemMapper : IBaseMapper<Item>
     {
+         
     }
 }

@@ -46,6 +46,15 @@ namespace Sigga.Avaliacao.Presentation.Controllers
 
         public ActionResult About()
         {
+
+            using (var facade = FacadeFactory.Item())
+            {
+                var response = facade.RetrieveCollection(new ItemCondition { Completed = false, UserId = 1 });
+                return View(response);
+            }
+
+
+
             ViewBag.Message = "Your application description page.";
 
             return View();

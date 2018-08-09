@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Condition\Interface\IModelCondition.cs" />
+    <Compile Include="Condition\ItemCondition.cs" />
     <Compile Include="Condition\ModelCondition.cs" />
     <Compile Include="Entity\Item.cs" />
     <Compile Include="Exceptions\DatabaseEntryNotFoundException.cs" />
